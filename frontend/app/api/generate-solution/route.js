@@ -17,7 +17,7 @@ export async function POST(request) {
     const body = await request.json();
     console.log("📝 Request body:", body);
 
-    const { title, description, domain } = body;
+    const { question, domain } = body;
 
     if (!process.env.ANTHROPIC_API_KEY) {
       console.error("❌ ANTHROPIC_API_KEY is missing");
@@ -37,7 +37,7 @@ export async function POST(request) {
 
     const prompt = `You are an expert teacher helping a beginner learn. 
     
-Problem: ${description}
+Problem: ${question}
 Domain: ${domain}
 
 Provide a response in this exact JSON format (no markdown, pure JSON):
@@ -87,10 +87,10 @@ Provide a response in this exact JSON format (no markdown, pure JSON):
       .from("problems")
       .insert([
         {
-          title: title,
-          description: description,
-          domain: domain,
-        },
+      title: question,
+      description: question,
+      domain: domain,
+      },
       ])
       .select();
 
