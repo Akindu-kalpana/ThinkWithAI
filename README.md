@@ -110,6 +110,3 @@ All routes live under `frontend/app/api/` and are called from the client via `ax
 
 The project deploys cleanly on [Vercel](https://vercel.com). Set `ANTHROPIC_API_KEY` (and any Supabase variables you use) in the project's environment settings, then deploy the `frontend/` directory.
 
-## License
-
-No license has been declared yet — add one before publishing.
